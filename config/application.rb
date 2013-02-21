@@ -82,14 +82,7 @@ module Discourse
     # Our templates shouldn't start with 'discourse/templates'
     config.handlebars.templates_root = 'discourse/templates'
 
-    # Use redis for our cache
-    redis_config = YAML::load(File.open("#{Rails.root}/config/redis.yml"))[Rails.env]
-    
-    #redis_store for development leveraging local install
-    redis_store = ActiveSupport::Cache::RedisStore.new "redis://#{redis_config['host']}:#{redis_config['port']}/#{redis_config['cache_db']}" if Rails.env == "development"
-
-    #redis_store for production leveraging redistogo
-    redis_store = ActiveSupport::Cache::RedisStore.new "redis://redistogo:#{redis_config['password']}@#{redis_config['host']}:#{redis_config['port']}" if Rails.env == "production"
+    redis_store = ActiveSupport::Cache::RedisStore.new ENV["REDIS_URL"]
 
     redis_store.options[:namespace] = -> { DiscourseRedis.namespace }
     config.cache_store = redis_store
