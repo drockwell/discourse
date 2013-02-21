@@ -7,7 +7,8 @@ gem 'vestal_versions', git: 'git://github.com/zhangyuan/vestal_versions'
 gem 'message_bus', path: 'vendor/gems/message_bus'
 gem 'rails_multisite', path: 'vendor/gems/rails_multisite'
 gem 'simple_handlebars_rails', path: 'vendor/gems/simple_handlebars_rails'
-
+gem 'figaro'
+gem 'heroku'
 gem 'redcarpet', require: false
 gem 'activerecord-postgres-hstore'
 gem 'acts_as_paranoid'

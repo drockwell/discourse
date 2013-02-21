@@ -20,7 +20,7 @@ dump.rdb
 /coverage/*
 
 config/database.yml
-config/redis.yml
+#config/redis.yml
 
 # Ignore the default SQLite database and db dumps
 /db/*.sqlite3
@@ -71,3 +71,6 @@ chef/tmp/*
 
 # exclude our git version file for now 
 config/version.rb
+
+# Ignore application configuration
+/config/application.yml
