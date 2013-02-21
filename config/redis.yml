@@ -14,3 +14,8 @@ test:
 staging:
   <<: *defaults
 
+production:
+  host: #{Figaro.env.redis_host}
+  port: #{Figaro.env.redis_port}
+  password: #{Figaro.env.redis_password}
+
